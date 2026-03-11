@@ -66,11 +66,12 @@ int getChoice(){
     int input;
     cin >> input;
 
-    // لو الـ cin علقت أو لقت حرف بدل الرقم أو زبالة في الميموري
+    // this block added by ai
+    // it handels the infinit loop error
     if (cin.fail()) {
-        cin.clear(); // 1. بتصلح الـ cin وترجعها تشتغل
-        cin.ignore(10000, '\n'); // 2. بتمسح الإيرور اللي معلقها من الميموري
-        return -1; // 3. بترجع رقم وهمي عشان الـ switch تتجاهله وتطبع المنيو تاني
+        cin.clear();
+        cin.ignore(10000, '\n');
+        return -1;
     }
 
     return input;
